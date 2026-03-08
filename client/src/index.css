@@ -1,0 +1,147 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Professional Dark Mode (Black/Grey) */
+  --bg-main: #09090b;
+  /* Zinc 950 */
+  --bg-card: rgba(24, 24, 27, 0.8);
+  /* Zinc 900 with opacity */
+  --text-primary: #fafafa;
+  /* Zinc 50 */
+  --text-secondary: #a1a1aa;
+  /* Zinc 400 */
+  --accent-primary: #e4e4e7;
+  /* Zinc 200 (Actionable items) */
+  --accent-secondary: #10b981;
+  /* Keep Green for success */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --map-style: 'mapbox://styles/mapbox/dark-v11';
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --bg-modal: #1e293b;
+  --border-divider: rgba(255, 255, 255, 0.05);
+  --btn-secondary: #475569;
+  --btn-tertiary: #0f766e;
+  --input-bg: rgba(15, 23, 42, 0.6);
+  --danger-bg: rgba(239, 68, 68, 0.1);
+  --danger-border: rgba(239, 68, 68, 0.2);
+  --danger-text: #fca5a5;
+  --bg-secondary: #334155;
+}
+
+[data-theme='light'] {
+  /* Professional Light Mode (White/Grey) */
+  --bg-main: #f4f4f5;
+  /* Zinc 100 */
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text-primary: #18181b;
+  /* Zinc 900 */
+  --text-secondary: #71717a;
+  /* Zinc 500 */
+  --accent-primary: #18181b;
+  /* Zinc 900 (Black accent) */
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --map-style: 'mapbox://styles/mapbox/light-v11';
+  --bg-overlay: rgba(0, 0, 0, 0.4);
+  --bg-modal: #ffffff;
+  --border-divider: rgba(0, 0, 0, 0.1);
+  --btn-secondary: #e2e8f0;
+  --btn-tertiary: #0d9488;
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --danger-bg: rgba(254, 226, 226, 1);
+  --danger-border: rgba(252, 165, 165, 1);
+  --danger-text: #b91c1c;
+  --bg-secondary: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  /* Darker thumb */
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  /* Increased blur */
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* Softer shadow */
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: var(--bg-main);
+  /* Inverted text color */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.input-field {
+  background: var(--input-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 0.75rem;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--accent-primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
